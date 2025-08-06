@@ -1,0 +1,34 @@
+[package]
+name = "monkey-tail-trail-extraction"
+version = "0.1.0"
+edition = "2021"
+authors = ["Kundai Farai Sachikonye <kundai.sachikonye@wzw.tum.de>"]
+description = "Progressive noise reduction and thermodynamic trail extraction algorithms"
+license = "MIT"
+
+[dependencies]
+monkey-tail-core = { path = "../monkey-tail-core" }
+monkey-tail-sensors = { path = "../monkey-tail-sensors" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+nalgebra = { workspace = true }
+ndarray = { workspace = true }
+ndarray-linalg = { workspace = true }
+argmin = { workspace = true }
+statrs = { workspace = true }
+rand = { workspace = true }
+rand_distr = { workspace = true }
+rustfft = { workspace = true }
+biquad = { workspace = true }
+rayon = { workspace = true }
+crossbeam = { workspace = true }
+dashmap = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+
+[dev-dependencies]
+criterion = { workspace = true }

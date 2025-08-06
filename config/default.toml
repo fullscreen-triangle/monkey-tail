@@ -1,0 +1,107 @@
+# Default configuration for Monkey-Tail framework
+
+[sensors]
+# Sensor sampling configuration
+sampling_rate = 10.0  # Hz - How often to sample continuous sensors
+buffer_size = 1000    # Number of samples to buffer
+read_timeout = 1000   # Milliseconds before sensor read times out
+parallel_reading = true  # Enable parallel sensor reading for performance
+
+[noise_reduction]
+# Progressive noise reduction algorithm parameters
+max_threshold = 1.0        # Starting noise threshold (maximum noise)
+min_threshold = 0.1        # Ending noise threshold (minimum noise)
+reduction_step = 0.05      # Step size for threshold reduction
+convergence_tolerance = 0.001  # Tolerance for algorithm convergence
+max_iterations = 1000      # Maximum iterations for convergence
+
+[pattern_extraction]
+# Pattern detection and persistence parameters
+persistence_threshold = 0.8  # Minimum persistence score for pattern retention
+min_pattern_strength = 0.3   # Minimum signal strength for pattern detection
+temporal_coherence = 0.7     # Required temporal coherence across samples
+cross_modal_correlation = 0.5  # Minimum correlation between sensor modalities
+
+[identity]
+# Ephemeral identity construction parameters
+decay_rate = 0.1          # Rate of temporal decay for identity components
+temporal_window = 3600    # Time window in seconds for identity construction
+coherence_threshold = 0.7 # Minimum coherence for stable identity
+adaptation_rate = 0.05    # Rate of identity adaptation to new patterns
+privacy_epsilon = 0.1     # Differential privacy epsilon parameter
+
+[visual]
+# Visual sensor configuration
+enable = true
+confidence_threshold = 0.8   # Minimum confidence for visual pattern detection
+frame_rate = 30.0           # Target frame rate for visual processing
+resolution_width = 640      # Processing resolution width
+resolution_height = 480     # Processing resolution height
+attention_window = 5.0      # Attention tracking window in seconds
+
+[audio]
+# Audio sensor configuration  
+enable = true
+sample_rate = 44100         # Audio sample rate in Hz
+chunk_size = 1024          # Audio processing chunk size
+frequency_bands = 32       # Number of frequency bands for analysis
+noise_gate_threshold = -40  # Noise gate threshold in dB
+temporal_smoothing = 0.3   # Temporal smoothing factor
+
+[gps]
+# GPS/location sensor configuration
+enable = true
+accuracy_threshold = 10.0   # Required GPS accuracy in meters
+update_interval = 5.0      # GPS update interval in seconds
+movement_threshold = 1.0   # Minimum movement for trajectory update (meters)
+trajectory_smoothing = 0.5 # Trajectory smoothing factor
+
+[biological]
+# Biological data sensor configuration
+enable = false  # Disabled by default due to privacy concerns
+genomic_variants = false   # Include genomic variant data
+metabolomic_data = false   # Include metabolomic measurements
+circadian_tracking = true  # Track circadian rhythm patterns
+physiological_monitoring = false  # Real-time physiological monitoring
+
+[interaction]
+# Digital interaction pattern tracking
+keystroke_dynamics = true    # Track keystroke timing patterns
+mouse_movement = true       # Track mouse movement patterns  
+navigation_patterns = true  # Track UI navigation patterns
+click_timing = true        # Track click timing and rhythm
+scroll_behavior = true     # Track scrolling behavior patterns
+
+[performance]
+# Performance and resource management
+max_memory_mb = 1024       # Maximum memory usage in MB
+thread_pool_size = 4       # Number of worker threads
+enable_gpu = false         # Enable GPU acceleration if available
+cache_size_mb = 256        # Cache size for pattern storage
+batch_processing = true    # Enable batch processing for efficiency
+
+[logging]
+# Logging configuration
+level = "info"             # Log level: trace, debug, info, warn, error
+file_logging = true        # Enable file logging
+console_logging = true     # Enable console logging
+log_directory = "logs"     # Directory for log files
+max_log_size_mb = 100     # Maximum log file size
+log_rotation = true       # Enable log rotation
+
+[output]
+# Output format and storage configuration
+format = "json"           # Output format: json, binary, csv
+compression = true        # Enable output compression
+encryption = false        # Enable output encryption (requires key configuration)
+retention_days = 30       # Data retention period in days
+export_directory = "data" # Directory for exported data
+
+[privacy]
+# Privacy protection settings
+differential_privacy = true     # Enable differential privacy
+noise_injection = 0.1          # Noise injection level for privacy
+data_minimization = true       # Enable data minimization techniques
+temporal_decay = true          # Enable temporal decay for privacy
+anonymization = true           # Enable pattern anonymization
+consent_required = true        # Require explicit consent for data collection

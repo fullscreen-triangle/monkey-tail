@@ -1,0 +1,37 @@
+[package]
+name = "monkey-tail-bindings"
+version = "0.1.0"
+edition = "2021"
+authors = ["Kundai Farai Sachikonye <kundai.sachikonye@wzw.tum.de>"]
+description = "Python and WebAssembly bindings for Monkey-Tail framework"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+monkey-tail-core = { path = "../monkey-tail-core" }
+monkey-tail-sensors = { path = "../monkey-tail-sensors" }
+monkey-tail-trail-extraction = { path = "../monkey-tail-trail-extraction" }
+monkey-tail-identity = { path = "../monkey-tail-identity" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+
+# Python bindings
+pyo3 = { version = "0.20", features = ["extension-module"], optional = true }
+
+# WebAssembly bindings
+wasm-bindgen = { version = "0.2", optional = true }
+wasm-bindgen-futures = { version = "0.4", optional = true }
+js-sys = { version = "0.3", optional = true }
+web-sys = { version = "0.3", optional = true }
+console_error_panic_hook = { version = "0.1", optional = true }
+
+[features]
+default = []
+python = ["pyo3"]
+wasm = ["wasm-bindgen", "wasm-bindgen-futures", "js-sys", "web-sys", "console_error_panic_hook"]
+
+[dev-dependencies]
+criterion = { workspace = true }

@@ -1,0 +1,35 @@
+[package]
+name = "monkey-tail-sensors"
+version = "0.1.0"
+edition = "2021"
+authors = ["Kundai Farai Sachikonye <kundai.sachikonye@wzw.tum.de>"]
+description = "Multi-modal sensor integration for Monkey-Tail framework"
+license = "MIT"
+
+[dependencies]
+monkey-tail-core = { path = "../monkey-tail-core" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+nalgebra = { workspace = true }
+ndarray = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+
+# Optional sensor dependencies
+opencv = { workspace = true, optional = true }
+rodio = { workspace = true, optional = true }
+gpsd = { workspace = true, optional = true }
+
+[features]
+default = []
+visual = ["opencv"]
+audio = ["rodio"]
+gps = ["gpsd"]
+all = ["visual", "audio", "gps"]
+
+[dev-dependencies]
+criterion = { workspace = true }

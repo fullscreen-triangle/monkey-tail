@@ -1,0 +1,27 @@
+[package]
+name = "monkey-tail-identity"
+version = "0.1.0"
+edition = "2021"
+authors = ["Kundai Farai Sachikonye <kundai.sachikonye@wzw.tum.de>"]
+description = "Ephemeral digital identity construction and management"
+license = "MIT"
+
+[dependencies]
+monkey-tail-core = { path = "../monkey-tail-core" }
+monkey-tail-trail-extraction = { path = "../monkey-tail-trail-extraction" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+nalgebra = { workspace = true }
+ndarray = { workspace = true }
+statrs = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+bincode = { workspace = true }
+rmp-serde = { workspace = true }
+
+[dev-dependencies]
+criterion = { workspace = true }
