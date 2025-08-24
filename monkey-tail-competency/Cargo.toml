@@ -1,8 +1,8 @@
 [package]
-name = "monkey-tail-identity"
+name = "monkey-tail-competency"
 version = "0.1.0"
 edition = "2021"
-description = "Ephemeral identity processor with ecosystem security"
+description = "Four-sided triangle competency assessment system"
 
 [dependencies]
 monkey-tail-core = { path = "../monkey-tail-core" }
