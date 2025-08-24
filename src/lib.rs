@@ -1,73 +1,32 @@
-//! # Monkey-Tail: Ephemeral Digital Identity Framework
-//! 
-//! A framework for ephemeral digital identity through multi-modal thermodynamic trail extraction.
-//! 
-//! ## Overview
-//! 
-//! Monkey-Tail treats digital interaction patterns as thermodynamic trails naturally emergent 
-//! from user behavior, analogous to animal tracking in natural environments. The framework 
-//! extracts meaningful patterns from high-dimensional sensor data through progressive noise 
-//! reduction without requiring precise measurements or comprehensive metric collection.
-//! 
-//! ## Core Concepts
-//! 
-//! - **Thermodynamic Trails**: Natural patterns in digital interaction behavior
-//! - **Progressive Noise Reduction**: Algorithm for extracting patterns from sensor noise
-//! - **Ephemeral Identity**: Temporal identity construction that evolves with behavior
-//! - **Multi-Modal Sensors**: Integration of visual, audio, location, and biological data
-//! 
-//! ## Example Usage
-//! 
-//! ```rust,no_run
-//! use monkey_tail::prelude::*;
-//! 
-//! #[tokio::main]
-//! async fn main() -> anyhow::Result<()> {
-//!     // Create sensor environment
-//!     let mut sensors = SensorEnvironment::new();
-//!     sensors.add_visual_sensor()?;
-//!     sensors.add_audio_sensor()?;
-//!     sensors.add_gps_sensor()?;
-//!     
-//!     // Initialize trail extractor
-//!     let extractor = TrailExtractor::new(
-//!         NoiseReductionConfig::default()
-//!     );
-//!     
-//!     // Extract thermodynamic trails
-//!     let trails = extractor.extract_trails(&sensors).await?;
-//!     
-//!     // Construct ephemeral identity
-//!     let identity = EphemeralIdentity::from_trails(trails)?;
-//!     
-//!     println!("Identity coherence: {:.3}", identity.coherence_score());
-//!     
-//!     Ok(())
-//! }
-//! ```
+//! # Monkey-Tail: Ephemeral Semantic Digital Identity System
+//!
+//! Monkey-Tail is a revolutionary framework for creating consciousness-aware AI systems
+//! through ephemeral semantic identity and noise-to-meaning extraction.
+//!
+//! ## Core Principles
+//!
+//! - **One Machine, One User, One Application**: Dedicated personal AI systems
+//! - **Ephemeral Identity**: No stored personal data, identity exists only as current AI understanding
+//! - **Ecosystem Security**: Security through uniqueness, not computational complexity
+//! - **Semantic Competency**: Real-time assessment of user expertise across domains
+//! - **BMD Effectiveness**: Biological Maxwell Demon processing scales with user understanding
 
-pub use monkey_tail_core as core;
-pub use monkey_tail_sensors as sensors;
-pub use monkey_tail_trail_extraction as trail_extraction;
-pub use monkey_tail_identity as identity;
+pub use monkey_tail_core::*;
+pub use monkey_tail_sensors::*;
+pub use monkey_tail_identity::*;
+pub use monkey_tail_kambuzuma::*;
+pub use monkey_tail_competency::*;
 
-/// Convenient re-exports for common usage
+/// Prelude module for convenient imports
 pub mod prelude {
-    pub use crate::core::{
-        SensorStream, ThermodynamicTrail, NoiseThreshold, 
-        PatternPersistence, SensorEnvironment
+    pub use crate::{
+        SemanticIdentity,
+        PersonalizedKambuzumaProcessor,
+        EphemeralIdentityProcessor,
+        FourSidedTriangleAssessor,
     };
-    pub use crate::sensors::{
-        VisualSensor, AudioSensor, GpsSensor, BiologicalSensor,
-        SensorData, SensorError
-    };
-    pub use crate::trail_extraction::{
-        TrailExtractor, NoiseReductionConfig, ProgressiveNoiseReduction,
-        PatternExtractor, ThermodynamicPattern
-    };
-    pub use crate::identity::{
-        EphemeralIdentity, IdentityBuilder, TemporalDecay,
-        IdentityCoherence, PrivacyPreservation
-    };
+    
+    pub use uuid::Uuid;
+    pub use chrono::{DateTime, Utc};
     pub use anyhow::{Result, Error};
 }

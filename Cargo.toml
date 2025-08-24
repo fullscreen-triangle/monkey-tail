@@ -1,115 +1,51 @@
+[workspace]
+members = [
+    "monkey-tail-core",
+    "monkey-tail-sensors", 
+    "monkey-tail-identity",
+    "monkey-tail-kambuzuma",
+    "monkey-tail-competency",
+    "monkey-tail-cli"
+]
+resolver = "2"
+
+[workspace.dependencies]
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+uuid = { version = "1.0", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+anyhow = "1.0"
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+nalgebra = "0.32"
+ndarray = "0.15"
+rustfft = "6.0"
+clap = { version = "4.0", features = ["derive"] }
+
 [package]
 name = "monkey-tail"
 version = "0.1.0"
 edition = "2021"
 authors = ["Kundai Farai Sachikonye <kundai.sachikonye@wzw.tum.de>"]
-description = "A framework for ephemeral digital identity through multi-modal thermodynamic trail extraction"
+description = "Ephemeral semantic digital identity system for consciousness-aware AI"
 license = "MIT"
 repository = "https://github.com/fullscreen-triangle/monkey-tail"
-keywords = ["ephemeral-identity", "thermodynamic-patterns", "noise-reduction", "multi-modal-sensing", "digital-trails"]
-categories = ["algorithms", "science", "mathematics"]
-
-[workspace]
-members = [
-    "monkey-tail-core",
-    "monkey-tail-sensors", 
-    "monkey-tail-trail-extraction",
-    "monkey-tail-identity",
-    "monkey-tail-cli",
-    "monkey-tail-bindings"
-]
-
-[workspace.dependencies]
-# Core dependencies
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
-tokio = { version = "1.0", features = ["full"] }
-anyhow = "1.0"
-thiserror = "1.0"
-tracing = "0.1"
-tracing-subscriber = { version = "0.3", features = ["env-filter"] }
-uuid = { version = "1.0", features = ["v4", "serde"] }
-chrono = { version = "0.4", features = ["serde"] }
-
-# Mathematical and scientific computing
-nalgebra = "0.32"
-ndarray = "0.15"
-ndarray-linalg = "0.16"
-argmin = "0.8"
-statrs = "0.16"
-rand = "0.8"
-rand_distr = "0.4"
-
-# Signal processing and filtering
-rustfft = "6.1"
-biquad = "0.4"
-dasp = "0.11"
-
-# Multi-threading and async
-rayon = "1.7"
-crossbeam = "0.8"
-dashmap = "5.4"
-
-# Configuration and CLI
-clap = { version = "4.0", features = ["derive", "cargo"] }
-config = "0.13"
-toml = "0.8"
-
-# Data serialization and storage
-bincode = "1.3"
-rmp-serde = "1.1"
-
-# Performance and monitoring
-criterion = "0.5"
-pprof = { version = "0.13", features = ["criterion", "flamegraph"] }
-
-# Optional sensor integrations
-opencv = { version = "0.88", optional = true, features = ["opencv-4"] }
-rodio = { version = "0.17", optional = true }
-gpsd = { version = "0.3", optional = true }
 
 [dependencies]
 monkey-tail-core = { path = "monkey-tail-core" }
 monkey-tail-sensors = { path = "monkey-tail-sensors" }
-monkey-tail-trail-extraction = { path = "monkey-tail-trail-extraction" }
 monkey-tail-identity = { path = "monkey-tail-identity" }
+monkey-tail-kambuzuma = { path = "monkey-tail-kambuzuma" }
+monkey-tail-competency = { path = "monkey-tail-competency" }
+monkey-tail-cli = { path = "monkey-tail-cli" }
 
-serde = { workspace = true }
-serde_json = { workspace = true }
 tokio = { workspace = true }
-anyhow = { workspace = true }
 tracing = { workspace = true }
 tracing-subscriber = { workspace = true }
-
-[dev-dependencies]
-criterion = { workspace = true }
-pprof = { workspace = true }
-
-[features]
-default = ["visual-sensors", "audio-sensors", "gps-sensors"]
-visual-sensors = ["opencv", "monkey-tail-sensors/visual"]
-audio-sensors = ["rodio", "monkey-tail-sensors/audio"] 
-gps-sensors = ["gpsd", "monkey-tail-sensors/gps"]
-all-sensors = ["visual-sensors", "audio-sensors", "gps-sensors"]
+anyhow = { workspace = true }
 
 [[bin]]
 name = "monkey-tail"
 path = "src/main.rs"
-
-[[bench]]
-name = "trail_extraction"
-harness = false
-
-[profile.release]
-opt-level = 3
-lto = "fat"
-codegen-units = 1
-panic = "abort"
-
-[profile.dev]
-opt-level = 1
-debug = true
-
-[profile.bench]
-opt-level = 3
-debug = false

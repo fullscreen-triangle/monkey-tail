@@ -1,17 +1,19 @@
 [package]
-name = "monkey-tail-core"
+name = "monkey-tail-kambuzuma"
 version = "0.1.0"
 edition = "2021"
-description = "Core types and traits for Monkey-Tail semantic identity system"
+description = "Kambuzuma integration layer for personalized BMD processing"
 
 [dependencies]
+monkey-tail-core = { path = "../monkey-tail-core" }
 serde = { workspace = true }
 serde_json = { workspace = true }
 uuid = { workspace = true }
 chrono = { workspace = true }
+tokio = { workspace = true }
 anyhow = { workspace = true }
 thiserror = { workspace = true }
-nalgebra = { workspace = true }
+tracing = { workspace = true }
 
 [dev-dependencies]
 tokio-test = "0.4"
