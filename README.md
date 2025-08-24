@@ -1,4 +1,9 @@
-# Monkey-Tail
+<h1 align="center">Monkey Tail</h1>
+<p align="center"><em>If having a tail was compulsory, we would settle on the one that belongs to a monkey</em></p>
+
+<p align="center">
+  <img src="assets/images/balint-miko-YGz4PDiv36E-unsplash.jpg" alt="Monkey Tail" width="500"/>
+</p>
 
 A framework for ephemeral digital identity through multi-modal thermodynamic trail extraction.
 
@@ -46,21 +51,21 @@ async fn main() -> Result<()> {
     sensors.add_visual_sensor()?;
     sensors.add_audio_sensor()?;
     sensors.add_gps_sensor()?;
-    
+
     // Initialize trail extractor with progressive noise reduction
     let extractor = TrailExtractor::new(
         NoiseReductionConfig::default()
     );
-    
+
     // Extract thermodynamic trails from sensor noise
     let trails = extractor.extract_trails(&sensors).await?;
-    
+
     // Construct ephemeral identity from extracted trails
     let identity = EphemeralIdentity::from_trails(trails)?;
-    
+
     println!("Identity coherence: {:.3}", identity.coherence_score());
     println!("Active patterns: {}", identity.pattern_count());
-    
+
     Ok(())
 }
 ```
@@ -118,7 +123,7 @@ accuracy_threshold = 10.0  # meters
 ### Multi-Modal Sensor Support
 
 - **Visual Processing**: Eye tracking, image preference, visual attention patterns
-- **Audio Analysis**: Music preference, rhythm detection, ambient sound tolerance  
+- **Audio Analysis**: Music preference, rhythm detection, ambient sound tolerance
 - **Geolocation**: Movement patterns, location preferences, trajectory analysis
 - **Biological Data**: Genomic variants, metabolomic profiles, circadian rhythms
 - **Interaction Patterns**: Keystroke dynamics, mouse movements, navigation behavior
@@ -146,6 +151,7 @@ T_u(E, θ) = {p ∈ P : SNR(p, E) > θ}
 ```
 
 Where:
+
 - `T_u` is the thermodynamic trail for user `u`
 - `E` is the sensor environment
 - `θ` is the noise threshold
@@ -217,16 +223,16 @@ print(f"Coherence: {identity.coherence_score()}")
 ### WebAssembly
 
 ```javascript
-import init, { SensorEnvironment, TrailExtractor } from './pkg/monkey_tail.js';
+import init, { SensorEnvironment, TrailExtractor } from "./pkg/monkey_tail.js";
 
 async function run() {
-    await init();
-    
-    const sensors = new SensorEnvironment();
-    const extractor = new TrailExtractor();
-    
-    const trails = await extractor.extract_trails(sensors);
-    console.log(`Extracted ${trails.length} trails`);
+  await init();
+
+  const sensors = new SensorEnvironment();
+  const extractor = new TrailExtractor();
+
+  const trails = await extractor.extract_trails(sensors);
+  console.log(`Extracted ${trails.length} trails`);
 }
 ```
 
@@ -254,4 +260,5 @@ Contributions are welcome! Please read our [contributing guidelines](CONTRIBUTIN
 ## Contact
 
 For questions and support, please open an issue on GitHub or contact:
+
 - Kundai Farai Sachikonye (kundai.sachikonye@wzw.tum.de)
